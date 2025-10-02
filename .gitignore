@@ -1,14 +1,58 @@
-Admission
+# Ignore the top-level Admission directory
+Admission/
+
+# --- GENERAL RULE FOR SEM1 ---
+# Ignore everything directly inside the Sem1 directory by default.
 Sem1/*
-Sem1/COL7004/COL7004.docx
-!Sem1/COL7001/Lecture_slides/PreMidTerms
-!Sem1/COL7001/Lecture_slides/PostMidTerms
-!Sem1/COL7001/Lecture_slides/PreMidTerms
-!Sem1/COL7001/Books
+
+# --- SEM1/COL7001 ---
+# 1. Un-ignore the course directory itself.
+!Sem1/COL7001/
+# 2. Ignore all contents of that course directory.
+Sem1/COL7001/*
+# 3. Un-ignore the specific subdirectories we want to track.
+!Sem1/COL7001/Books/
 !Sem1/COL7001/Miscellaneous/
+!Sem1/COL7001/Lecture_slides/
+# 4. For nested directories, repeat the pattern.
+Sem1/COL7001/Lecture_slides/*
+!Sem1/COL7001/Lecture_slides/PreMidTerms/
+!Sem1/COL7001/Lecture_slides/PostMidTerms/
+
+# --- SEM1/COL7004 ---
+# Un-ignore the course directory.
+!Sem1/COL7004/
+# Ignore its contents.
+Sem1/COL7004/*
+# Un-ignore the specific subdirectories to track.
 !Sem1/COL7004/Books/
-!Sem1/COL7004/Tutorials/
-!Sem1/COL7004/Quizzes/
 !Sem1/COL7004/Lectures/
-!Sem1/COL7333/Lectures/
-!Sem1/COL7333/Books
+!Sem1/COL7004/Quizzes/
+!Sem1/COL7004/Tutorials/
+# Also, explicitly ignore this file as requested in your original file.
+Sem1/COL7004/COL7004.docx
+
+# --- SEM1/COL7333 (UPDATED) ---
+# Un-ignore the course directory.
+!Sem1/COL7333/
+# Ignore its contents by default.
+Sem1/COL7333/*
+
+# Un-ignore these directories entirely.
+!Sem1/COL7333/Books/
+!Sem1/COL7333/Old_Papers/
+
+# NEW: Within the tracked 'Books' directory, specifically ignore 'Old_sol'.
+Sem1/COL7333/Books/Old_sol
+
+# NEW: Apply special rules for the 'Lecture_slides' directory.
+# First, un-ignore the directory itself so we can look inside.
+!Sem1/COL7333/Lecture_slides/
+# Then, ignore everything inside it by default.
+Sem1/COL7333/Lecture_slides/*
+# Now, un-ignore only the subdirectories you want to track.
+!Sem1/COL7333/Lecture_slides/PreMidTerms/
+!Sem1/COL7333/Lecture_slides/PostMidTerms/
+# Finally, ignore the 'transcripts' folder inside each of those.
+Sem1/COL7333/Lecture_slides/PreMidTerms/transcripts
+Sem1/COL7333/Lecture_slides/PostMidTerms/transcripts
